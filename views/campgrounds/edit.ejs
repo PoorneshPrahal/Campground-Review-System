@@ -1,0 +1,88 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row">
+  <h1 class="text-center">Edit Campground</h1>
+  <div class="col-6 offset-3">
+    <form
+      action="/campgrounds/<%= ground._id %>?_method=PUT"
+      method="post"
+      novalidate
+      class="validated-form"
+    >
+      <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input
+          class="form-control"
+          type="text"
+          name="campground[title]"
+          id="title"
+          value="<%= ground.title %>"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="location">Location</label>
+        <input
+          class="form-control"
+          type="text"
+          name="campground[location]"
+          id="location"
+          value="<%= ground.location %>"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="image">Image Url</label>
+        <input
+          class="form-control"
+          type="text"
+          name="campground[image]"
+          id="image"
+          value="<%= ground.image %>"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="price-label">$</span>
+          <input
+            type="text"
+            class="form-control"
+            id="price"
+            value="<%= ground.price %>"
+            name="campground[price]"
+            placeholder="0.00"
+            aria-label="Username"
+            aria-describedby="price-label"
+            required
+          />
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="desc">Description</label>
+        <textarea
+          class="form-control"
+          type="text"
+          name="campground[description]"
+          id="desc"
+          required
+        >
+        <%= ground.description %> </textarea
+        >
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <div class="mb-3">
+        <button type="submit" class="btn btn-info" style="color: white">
+          Update Campground
+        </button>
+      </div>
+    </form>
+    <a href="/campgrounds/<%=ground._id%>">Back to campground</a>
+  </div>
+</div>
